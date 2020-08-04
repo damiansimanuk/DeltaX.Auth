@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "DeltaX.Auth.IdentityServer": {
+      "commandName": "Project",
+      "commandLineArgs": "/seed",
+      "launchUrl": "https://localhost:5011/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5011;http://localhost:5010"
+    }
+  }
+}
