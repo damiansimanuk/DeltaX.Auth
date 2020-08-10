@@ -98,6 +98,30 @@ namespace DeltaX.Auth.IdentityServer
                     {
                         logger.LogDebug("bob already exists");
                     }
+
+                     
+                    var roleMgr = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                    if (roleMgr.RoleExistsAsync("Api1Admin").Result == false)
+                    {
+                        var rol = new IdentityRole
+                        {
+                            Name = "Api1Admin",
+                        };
+
+                        var result = roleMgr.CreateAsync(rol).Result;
+                        if (!result.Succeeded)
+                        {
+                            throw new Exception(result.Errors.First().Description);
+                        }
+
+                        // result = roleMgr.AddClaimAsync(rol, new Claim(JwtClaimTypes.Address, "Bob Smith")).Result;
+
+                        result = userMgr.AddToRoleAsync(alice, rol.Name).Result;
+                        if (!result.Succeeded)
+                        {
+                            throw new Exception(result.Errors.First().Description);
+                        }
+                    }
                 }
             }
         }

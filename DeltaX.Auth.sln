@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{64A00DD1-91AB-4789-9F5B-146907819C32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaX.Auth.IdentityServer", "Source\DeltaX.Auth.IdentityServer\DeltaX.Auth.IdentityServer.csproj", "{B85E7F68-9737-4677-833A-F1F2E40D5211}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeltaX.Auth.IdentityServer", "Source\DeltaX.Auth.IdentityServer\DeltaX.Auth.IdentityServer.csproj", "{B85E7F68-9737-4677-833A-F1F2E40D5211}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeltaX.Auth.Api", "Source\DeltaX.Auth.Api\DeltaX.Auth.Api.csproj", "{959C54FA-84CF-48FC-A877-A2C3E1E0DFB1}"
 EndProject

@@ -15,5 +15,12 @@ namespace DeltaX.Auth.Api.Controllers
         {
             return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
         }
+
+        [AllowAnonymous]
+        [HttpGet("private")]
+        public IActionResult GetPrivate()
+        {
+            return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
+        }
     }
 }

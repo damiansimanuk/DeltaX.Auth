@@ -16,6 +16,7 @@ function log() {
 
 document.getElementById("login").addEventListener("click", login, false);
 document.getElementById("api").addEventListener("click", api, false);
+document.getElementById("api_private").addEventListener("click", api_private, false);
 document.getElementById("logout").addEventListener("click", logout, false);
 
 var config = {
@@ -49,7 +50,29 @@ function api() {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", url);
         xhr.onload = function () {
-            log(xhr.status, JSON.parse(xhr.responseText));
+            log(xhr.status, "api Result:" , JSON.parse(xhr.responseText));
+        }
+        xhr.onerror = function () {
+            log(xhr.status, "api Error:" ,  xhr.responseText);
+        }
+        xhr.setRequestHeader("Authorization", "Bearer " + user.access_token);
+        xhr.send();
+    });
+}
+
+
+
+function api_private() {
+    mgr.getUser().then(function (user) {
+        var url = "https://localhost:6001/identity/private";
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.onload = function () {
+            log(xhr.status, "api_private Result:" ,JSON.parse(xhr.responseText));
+        }
+        xhr.onerror = function () {
+            log(xhr.status, "api_private Error:" , xhr.responseText);
         }
         xhr.setRequestHeader("Authorization", "Bearer " + user.access_token);
         xhr.send();
